@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>hehe</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #f0f0f0;
+    text-align: center;
+    overflow: hidden;
+    position: relative;
+  }
+
+  h1 {
+    font-size: 24px;
+    margin-bottom: 30px;
+  }
+
+  button {
+    padding: 15px 30px;
+    font-size: 20px;
+    margin: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+  }
+
+  #message {
+    margin-top: 30px;
+    font-size: 20px;
+    color: #333;
+    min-height: 50px;
+    word-wrap: break-word;
+  }
+</style>
+</head>
+<body>
+
+<h1>Bạn là Gay?</h1>
+<button id="yes">Yes</button>
+<button id="no">No</button>
+
+<div id="message"></div>
+
+<script>
+const yesBtn = document.getElementById('yes');
+const noBtn = document.getElementById('no');
+const messageDiv = document.getElementById('message');
+
+yesBtn.addEventListener('click', () => {
+    yesBtn.style.transition = 'transform 0.5s';
+    yesBtn.style.transform = 'scale(1.5)';
+
+    const text = "Tại sao lại block Nghi trên tiktok vậy?";
+    messageDiv.textContent = '';
+    let i = 0;
+    const interval = setInterval(() => {
+        messageDiv.textContent += text[i];
+        i++;
+        if (i >= text.length) clearInterval(interval);
+    }, 100);
+});
+
+
+noBtn.addEventListener('click', () => {
+   
+    const maxX = window.innerWidth - noBtn.offsetWidth;
+    const maxY = window.innerHeight - noBtn.offsetHeight;
+    const randomX = Math.floor(Math.random() * maxX);
+    const randomY = Math.floor(Math.random() * maxY);
+
+    noBtn.style.position = 'absolute';
+    noBtn.style.left = randomX + 'px';
+    noBtn.style.top = randomY + 'px';
+
+    
+    yesBtn.style.transition = 'transform 0.5s';
+    yesBtn.style.transform = 'scale(1.5)';
+});
+</script>
+
+</body>
+</html>
